@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Damantara Studio — Software Printing, Cutting &amp; Kasir Percetakan</title>
+<meta name="description" content="Damantara Studio — koleksi software printing & cutting (SAi Flexi, CADlink, SignMaster, Wasatch, Neostampa, AID-CUT, AnyCut, Roll Print) plus Damantara POS, aplikasi kasir percetakan. Beli via WhatsApp, bayar PayPal.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.2.5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.2.5/index.css">
+<style>
+  :root{
+    --ink:#171717; --muted:#666; --faint:#999; --line:#eaeaea; --canvas:#fafafa;
+    --surface:#fff; --accent:#0070f3; --radius:6px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Geist Sans",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);background:var(--surface);line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  /* Header */
+  header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;gap:32px;height:64px}
+  .logo{font-weight:600;letter-spacing:-.02em;font-size:17px;text-decoration:none}
+  .logo span{color:var(--faint);font-weight:400}
+  .nav-links{display:flex;gap:24px;margin-left:auto;font-size:14px;color:var(--muted)}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 20px;border-radius:999px;
+    background:#000;color:#fff;text-decoration:none;font-size:14px;font-weight:500;border:1px solid #000}
+  .btn:hover{background:#171717}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-sm{height:32px;padding:0 14px;font-size:13px}
+  /* Hero */
+  .hero{padding:96px 0 64px;text-align:center}
+  .eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted)}
+  h1{font-size:56px;line-height:1.05;letter-spacing:-.04em;font-weight:600;margin:16px auto;max-width:820px}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:640px;margin:0 auto 32px}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .hero-meta{margin-top:48px;display:flex;gap:48px;justify-content:center;flex-wrap:wrap;
+    font-size:14px;color:var(--muted)}
+  .hero-meta b{color:var(--ink);font-family:"Geist Mono",monospace;font-weight:500}
+  /* Sections */
+  section{padding:64px 0}
+  section h2{font-size:32px;letter-spacing:-.03em;line-height:1.15;margin:0 0 8px}
+  .sub{color:var(--muted);max-width:640px;margin:0 0 32px}
+  /* POS feature */
+  .pos{border:1px solid var(--line);border-radius:12px;padding:40px;background:var(--canvas)}
+  .pos-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+  .pos ul{margin:16px 0;padding-left:20px;color:var(--muted)}
+  .pos li{margin:6px 0}
+  .badge{display:inline-block;font-family:"Geist Mono",monospace;font-size:12px;padding:4px 10px;
+    border-radius:999px;background:#000;color:#fff}
+  .badge-soon{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .pos-side{border:1px solid var(--line);border-radius:8px;background:#fff;padding:24px}
+  .pos-side h3{margin:0 0 8px;font-size:16px}
+  .pos-side p{margin:0 0 16px;color:var(--muted);font-size:14px}
+  /* Product grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{border:1px solid var(--line);border-radius:8px;padding:24px;background:#fff;
+    display:flex;flex-direction:column;gap:8px}
+  .card:hover{border-color:var(--ink)}
+  .tag{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .card h3{margin:0;font-size:17px;letter-spacing:-.01em;line-height:1.3}
+  .card p{margin:0;color:var(--muted);font-size:14px;flex:1}
+  .price{font-family:"Geist Mono",monospace;font-size:14px;font-weight:500}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
+  .sold{font-size:12px;color:var(--faint)}
+  /* How to buy */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{border:1px solid var(--line);border-radius:8px;padding:24px}
+  .step .n{font-family:"Geist Mono",monospace;font-size:12px;color:var(--faint)}
+  .step h3{margin:8px 0;font-size:16px}
+  .step p{margin:0;color:var(--muted);font-size:14px}
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:48px 0;color:var(--muted);font-size:14px}
+  .foot{display:flex;gap:48px;flex-wrap:wrap;justify-content:space-between}
+  .foot b{color:var(--ink)}
+  @media (max-width:900px){
+    h1{font-size:36px}
+    .grid,.steps{grid-template-columns:1fr 1fr}
+    .pos-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+  @media (max-width:560px){ .grid,.steps{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Damantara Studio <span>/ software &amp; kasir percetakan</span></a>
+    <nav class="nav-links">
+      <a href="#pos">Damantara POS</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#cara-beli">Cara Beli</a>
+    </nav>
+    <a class="btn btn-sm" href="https://wa.me/6281290000520?text=Halo%20Damantara%20Studio%2C%20saya%20mau%20tanya%20software.">Chat WhatsApp</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="eyebrow">Sekincau, Lampung Barat — sejak 2017</div>
+    <h1>Software printing &amp; cutting, langsung dari toko sablon.</h1>
+    <p class="lead">Koleksi software RIP, cutting, dan manajemen print yang kami pakai sendiri di workshop DTF — plus Damantara POS, aplikasi kasir yang kami bangun untuk percetakan.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#katalog">Lihat Katalog</a>
+      <a class="btn btn-ghost" href="https://wa.me/6281290000520">Chat WhatsApp →</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>13</b> produk software</div>
+      <div><b>5.0 / 5</b> rating toko di Shopee</div>
+      <div><b>9 thn</b> melayani pelanggan</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="pos">
+      <div class="pos">
+        <div class="pos-grid">
+          <div>
+            <span class="badge">Produk kami sendiri</span>
+            <h2 style="margin-top:16px">Damantara POS — kasir untuk percetakan &amp; sablon.</h2>
+            <p class="sub">Dibangun dari workflow workshop kami sendiri: order kaos satuan, hitung HPP, sampai pembayaran. Untuk pemilik percetakan dan sablon di Indonesia.</p>
+            <ul>
+              <li>Kasir &amp; order baru dengan harga per ukuran dan per sisi print</li>
+              <li>Produksi &amp; SPK, riwayat, dan pembayaran (termasuk tempo &amp; split payment)</li>
+              <li>Data pelanggan, produk &amp; bahan, laporan, dan pengaturan toko</li>
+            </ul>
+          </div>
+          <div class="pos-side">
+            <span class="badge badge-soon">Segera hadir</span>
+            <h3 style="margin-top:16px">Damantara POS masih tahap akhir.</h3>
+            <p>Aplikasi sedang diaudit sebelum dijual. Tinggalkan minat lewat WhatsApp, kami kabari begitu sudah bisa dibeli.</p>
+            <a class="btn btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20minat%20Damantara%20POS.%20Kabar-in%20ya%20kalau%20sudah%20rilis.">Saya Minat — Daftar via WA</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="katalog">
+      <h2>Katalog software</h2>
+      <p class="sub">Harga sesuai listing Shopee Damantara Studio (13 Nov 2026). Semua produk termasuk jasa instal remote. Detail garansi &amp; ketentuan — tanya admin via WhatsApp sebelum beli.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">RIP · DTF / Digital Printing</span>
+          <h3>SAi Flexi Print 24</h3>
+          <p>Full version untuk DTF &amp; digital printing.</p>
+          <div class="row"><span class="price">Rp750.000 – Rp2.500.000</span><span class="sold">7 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20SAi%20Flexi%20Print%2024.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">RIP · Sublimasi / DTF / UV</span>
+          <h3>Photoprint 21 — SAi Flexi 21</h3>
+          <p>Full version untuk sublimasi, DTF, dan UV digital printing.</p>
+          <div class="row"><span class="price">Rp450.000 – Rp1.500.000</span><span class="sold">2 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20Photoprint%2021.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">RIP · Large Format</span>
+          <h3>SAi Flexi 25</h3>
+          <p>Flexi Print 25 + Photoprint 25, large format, DTF &amp; sublimasi.</p>
+          <div class="row"><span class="price">Rp900.000 – Rp2.750.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20SAi%20Flexi%2025.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Cutting · Large Format</span>
+          <h3>SAi FlexiSign 19</h3>
+          <p>FlexiSign 19 + Photoprint 19, Production Manager large format.</p>
+          <div class="row"><span class="price">Rp399.000 – Rp1.250.000</span><span class="sold">2 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20FlexiSign%2019.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Cutting · JinKa</span>
+          <h3>AnyCut PRO 3.5 ARMS</h3>
+          <p>Software cutting full version, JinKa Edition, auto contour cut.</p>
+          <div class="row"><span class="price">Rp199.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20AnyCut%20PRO%203.5.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">RIP · DTF / DTG / Sublimasi</span>
+          <h3>Neostampa Delta 25.5</h3>
+          <p>Digital printing RIP: composition, rapport, separation, garment.</p>
+          <div class="row"><span class="price">Rp750.000 – Rp2.250.000</span><span class="sold">1 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20Neostampa%20Delta%2025.5.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Cutting · CorelDRAW / Illustrator</span>
+          <h3>AID-CUT V5.0.5</h3>
+          <p>Cut &amp; label flatbed untuk CorelDRAW dan Illustrator.</p>
+          <div class="row"><span class="price">Rp350.000 – Rp1.750.000</span><span class="sold">2 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20AID-CUT%20V5.0.5.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">RIP · Printing</span>
+          <h3>Wasatch Softrip 7.4</h3>
+          <p>Software printing Softrip 7.4, full version.</p>
+          <div class="row"><span class="price">Rp700.000</span><span class="sold">2 terjual · ★ 5.0</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20Wasatch%20Softrip%207.4.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Print Manager · Roll to Roll</span>
+          <h3>Roll Print Pro</h3>
+          <p>Print manager roll-to-roll, Epson DTF &amp; sublimasi.</p>
+          <div class="row"><span class="price">Rp350.000 – Rp1.500.000</span><span class="sold">1 terjual</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20Roll%20Print%20Pro.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Cutting · Flatbed</span>
+          <h3>SignMaster XPT V5</h3>
+          <p>Software cutting, auto contour, support flatbed.</p>
+          <div class="row"><span class="price">Rp250.000 – Rp1.000.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20SignMaster%20XPT%20V5.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">RIP · Direct to Film</span>
+          <h3>CADlink Digital Factory 10.9</h3>
+          <p>Direct to Film RIP, full version. Support L1800, 1390, L800, XP15000.</p>
+          <div class="row"><span class="price">Rp299.000 – Rp1.500.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20CADlink%20Digital%20Factory%2010.9.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">CNC · Laser / Plotter / Rotary</span>
+          <h3>CADlink EngraveLab V10</h3>
+          <p>Full version untuk ukiran CNC, laser, plotter, dan rotary.</p>
+          <div class="row"><span class="price">Rp350.000 – Rp1.500.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20CADlink%20EngraveLab%20V10.">Beli via WA</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Cutting</span>
+          <h3>SignMaster Pro V5</h3>
+          <p>Software SignMaster Pro V5, full version.</p>
+          <div class="row"><span class="price">Rp200.000</span><span class="sold">Baru</span></div>
+          <div class="row"><a class="btn btn-ghost btn-sm" href="https://wa.me/6281290000520?text=Halo%2C%20saya%20mau%20beli%20SignMaster%20Pro%20V5.">Beli via WA</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="cara-beli">
+      <h2>Cara beli</h2>
+      <p class="sub">Tanpa checkout otomatis — seperti dulu: pesan lewat WhatsApp, bayar via PayPal (pembeli luar negeri) atau transfer, instal dibantu remote.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="n">01</span>
+          <h3>Pilih software</h3>
+          <p>Klik “Beli via WA” di produk yang kamu mau, atau tanya dulu ke admin kalau belum yakin cocok dengan printer/mesinmu.</p>
+        </div>
+        <div class="step">
+          <span class="n">02</span>
+          <h3>Chat &amp; bayar</h3>
+          <p>Admin konfirmasi harga &amp; ketentuan. Pembeli luar negeri bayar via PayPal; pembeli Indonesia via WhatsApp / transfer.</p>
+        </div>
+        <div class="step">
+          <span class="n">03</span>
+          <h3>Instal remote</h3>
+          <p>File + panduan instal dikirim, dibantu instal remote sampai jalan di PC-mu.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <b>Damantara Studio</b><br>
+      Jln SMP Sekincau, Kec. Sekincau, Lampung Barat<br>
+      Telp / WhatsApp: 0812-9000-0520
+    </div>
+    <div>
+      <b>Belajar &amp; tutorial</b><br>
+      <a href="https://www.youtube.com/@damantara-studio">YouTube — @damantara-studio</a><br>
+      Video instalasi tiap software, gratis.
+    </div>
+    <div>
+      <b>Marketplace</b><br>
+      Juga tersedia di Shopee — Damantara Studio<br>
+      (rating toko 5.0/5)
+    </div>
+  </div>
+</footer>
+</body>
+</html>
